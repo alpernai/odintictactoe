@@ -1,59 +1,41 @@
 const gameBoard = () => {
-    let board = [];
+    let board = Array(9).fill("");
 
-    const createBoard = () => {
+    const resetBoard = () => {
         board = Array(9).fill("");
     };
 
-    const getBoard = () => board;
-    const placeMark = () => {
+    const getBoard = () => {
+        console.log(board)
     };
 
-    return { createBoard, getBoard, placeMark };
+    const setMark = (mark, index) => {
+        if (board[index] !== "" || index < 0 || index >= board.length){
+            console.log('Invalid move!');
+            return;
+        }
+
+        board[index] = mark;
+    };
+
+    return {resetBoard, getBoard, setMark};
 }
 
-const gameFlow = () => {
-    let gameOver = false;
-    let currentPlayer = "";
-
-    const startGame = () => {
+const createPlayers = () =>{
+    const createPlayer = (mark) => {
+        const player = mark;
+        return player;
     };
-
-    const getCurrentPlayer = () => currentPlayer;
-
-    const checkWinner = () => {
-    };
-
-    const switchTurn = () => {
-    };
-
-    const resetGame = () => {
-    };
-
-    return { startGame, getCurrentPlayer, checkWinner, switchTurn, resetGame };
 }
 
-const players = () => {
-    const createPlayer = () => {
-    };
+let game = gameBoard();
 
-    const getPlayerMark = () => {
-    };
+game.setMark('O', "0");
+game.setMark('O', "1");
+game.setMark('O', "2");
+game.setMark('X', "-1");
+game.setMark('X', "9");
 
-    return { createPlayer, getPlayerMark}
-}
 
-const manageDOM = () => {
 
-    const displayTurn = () => {
-    };
-
-    const displayScore = () => {
-    };
-
-    const displayWinner = () => {
-    };
-
-    return { displayTurn, displayScore, displayWinner }
-}
 
