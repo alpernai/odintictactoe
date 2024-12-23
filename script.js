@@ -16,19 +16,20 @@ const gameBoard = (() => {
         }
 
         board[index] = mark;
-        console.log(board);
     };
 
     return {resetBoard, getBoard, setMark};
 })();
 
+
 const createPlayer = (name, mark) => {
-    return { name, mark, turn: false, score: 0 };
+    return { name, mark, score: 0 };
 };
 
-const manageGame = () => {
+
+const manageGame = (() => {
     let gameOver = false;
-    let currentPlayer;
+    let currentPlayer = playerX;
     const winningCombinations = [
         [0, 1, 2], 
         [3, 4, 5], 
@@ -44,20 +45,21 @@ const manageGame = () => {
     };
 
     const changeTurn = () => {
+        currentPlayer = currentPlayer === playerX ? playerO : playerX;
+        console.log(currentPlayer);
     };
 
-    const increaseScore = () => {
+    const increaseScore = (player) => {
+        player.score++
     };
 
     return { checkWin, changeTurn, increaseScore };
-};
+})();
 
+// Execution
 
 const playerX = createPlayer('Player 1', 'X');
 const playerO = createPlayer('Player 2', 'O');
-
-
-
 
 let game = gameBoard;
 
