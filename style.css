@@ -65,7 +65,7 @@ main {
     background-color: #f1f1f1;
 }
 
-#x-score, #o-score, #ties {
+#x-score, #o-score, #ties, #rounds {
     margin: 0.25rem 0;
     font-size: 1rem;
 }
